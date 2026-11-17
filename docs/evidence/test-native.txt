@@ -1,0 +1,44 @@
+kqueue.c
+epoll.c
+openssl.c
+io_unix.c
+c_buffer.c
+runtime.c
+watch_kqueue.c
+watch_inotify.c
+utf.c
+watch_windows.c
+stdio.c
+iocp.c
+event_bus.c
+dir.c
+tty.c
+env.c
+process.c
+signal.c
+fd_util.c
+sync_io.c
+thread_pool.c
+io_windows.c
+fs.c
+schannel.c
+backtrace.c
+socket.c
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.blackbox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\utopi\moonfilecheck\moonfilecheck.internal_test.lib 和对象 <project>\_build\native\debug\test\utopi\moonfilecheck\moonfilecheck.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\utopi\moonfilecheck\moonfilecheck.blackbox_test.lib 和对象 <project>\_build\native\debug\test\utopi\moonfilecheck\moonfilecheck.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\unicode\unicode.blackbox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\unicode\unicode.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.blackbox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.internal_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.whitebox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.whitebox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.blackbox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.internal_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\unicode\unicode.internal_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\unicode\unicode.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.internal_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.internal_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\regexp.internal_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.whitebox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.whitebox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.whitebox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\vm\vm.whitebox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.blackbox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\ast\ast.blackbox_test.exp
+  正在创建库 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.whitebox_test.lib 和对象 <project>\_build\native\debug\test\moonbitlang\regexp\internal\parse\parse.whitebox_test.exp
+Fix your regex! 🔧
+Total tests: 174, passed: 174, failed: 0.

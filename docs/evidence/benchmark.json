@@ -1,0 +1,30 @@
+{
+  "scope": "End-to-end evaluate() including a new worker, engine load, JSON and matching; not a pure matching-throughput benchmark",
+  "platform": "win32",
+  "architecture": "x64",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+  "node": "v24.14.1",
+  "results": [
+    {
+      "input_bytes": 1037,
+      "runs": 5,
+      "median_ms": 63.6456,
+      "min_ms": 58.47789999999998,
+      "max_ms": 66.9805
+    },
+    {
+      "input_bytes": 65541,
+      "runs": 5,
+      "median_ms": 78.76390000000004,
+      "min_ms": 74.26199999999994,
+      "max_ms": 84.00519999999995
+    },
+    {
+      "input_bytes": 1048589,
+      "runs": 5,
+      "median_ms": 240.89010000000007,
+      "min_ms": 232.59699999999998,
+      "max_ms": 244.36599999999999
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonbitlang/regexp/internal/parse"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+  "moonbitlang/regexp/internal/ast",
+}
+
+// Values
+pub fn parse(StringView, flags? : Flags) -> ParseResult raise RegexpError
+
+// Errors
+#derive(@debug.Debug)
+pub suberror RegexpError {
+  RegexpError(err~ : Err, source_fragment~ : StringView)
+}
+pub fn RegexpError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+#derive(@debug.Debug)
+pub enum Err {
+  InternalError
+  InvalidCharClass
+  InvalidEscape
+  InvalidNamedCapture
+  InvalidRepeatOp
+  InvalidRepeatSize
+  MissingBracket
+  MissingParenthesis
+  MissingRepeatArgument
+  TrailingBackslash
+  UnexpectedParenthesis
+}
+pub fn Err::to_repr(Self) -> @debug.Repr
+
+#derive(Default)
+pub(all) struct Flags {
+  multiline : Bool
+  singleline : Bool
+  ignore_case : Bool
+}
+pub fn Flags::default() -> Self
+
+#derive(@json.ToJson)
+pub(all) struct ParseResult {
+  ast : @ast.Ast
+  captures : Int32
+  capture_map : Map[String, Int32]
+  has_backreference : Bool
+}
+pub fn ParseResult::to_json(Self) -> @json.Json
+
+// Type aliases
+
+// Traits

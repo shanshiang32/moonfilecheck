@@ -1,0 +1,14 @@
+{
+  "name": "moonfilecheck",
+  "version": "0.1.1",
+  "private": true,
+  "description": "MoonBit-native text regression checker",
+  "license": "Apache-2.0 WITH LLVM-exception",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/verify.mjs && node scripts/security.mjs",
+    "test:security": "node scripts/security.mjs",
+    "demo": "node cli.mjs examples/registers.fc --input examples/registers.txt"
+  },
+  "engines": { "node": ">=20" }
+}

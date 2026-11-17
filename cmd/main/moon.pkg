@@ -1,0 +1,8 @@
+import {
+  "utopi/moonfilecheck" @checker,
+  "moonbitlang/core/json",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "js"

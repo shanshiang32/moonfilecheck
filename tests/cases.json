@@ -1,0 +1,611 @@
+[
+  {
+    "name": "upstream/empty/0",
+    "rules": "",
+    "input": "",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/empty/1",
+    "rules": "",
+    "input": "hello",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/no_directives/0",
+    "rules": "nothing here",
+    "input": "",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/no_directives/1",
+    "rules": "nothing here",
+    "input": "hello",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/no_matches/0",
+    "rules": "regex: FOO=bar",
+    "input": "",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/no_matches/1",
+    "rules": "regex: FOO=bar",
+    "input": "hello",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/simple/0",
+    "rules": "\n        check: one\n        check: two\n        ",
+    "input": "\n        zero\n        one\n        and a half\n        two\n        three\n        ",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/simple/1",
+    "rules": "\n        check: one\n        check: two\n        ",
+    "input": "\n        zero\n        and a half\n        two\n        one\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/sameln/0",
+    "rules": "\n        check: one\n        sameln: two\n        ",
+    "input": "\n        zero\n        one\n        and a half\n        two\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/sameln/1",
+    "rules": "\n        check: one\n        sameln: two\n        ",
+    "input": "\n        zero\n        one\n        two\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/sameln/2",
+    "rules": "\n        check: one\n        sameln: two\n        ",
+    "input": "\n        zero\n        one two\n        three\n        ",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/nextln/0",
+    "rules": "\n        check: one\n        nextln: two\n        ",
+    "input": "\n        zero\n        one\n        and a half\n        two\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/nextln/1",
+    "rules": "\n        check: one\n        nextln: two\n        ",
+    "input": "\n        zero\n        one\n        two\n        three\n        ",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/nextln/2",
+    "rules": "\n        check: one\n        nextln: two\n        ",
+    "input": "\n        zero\n        one two\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/nextln/3",
+    "rules": "\n        check: one\n        nextln: two\n        ",
+    "input": "\n        zero\n        one\n        two",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_nextln/0",
+    "rules": "\n        nextln: one\n        nextln: two\n        ",
+    "input": "zero\n        one\n        two\n        three\n        ",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_nextln/1",
+    "rules": "\n        nextln: one\n        nextln: two\n        ",
+    "input": "one\n        two\n        three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_sameln/0",
+    "rules": "\n        sameln: one\n        sameln: two\n        ",
+    "input": "zero\n        one two three\n        ",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_sameln/1",
+    "rules": "\n        sameln: one\n        sameln: two\n        ",
+    "input": "zero one two three",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_sameln/2",
+    "rules": "\n        sameln: one\n        sameln: two\n        ",
+    "input": "zero one\n        two three",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/not/0",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        check: $()two\n        ",
+    "input": "onetwo",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/not/1",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        check: $()two\n        ",
+    "input": "one eat two",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/not/2",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        check: $()two\n        ",
+    "input": "oneeattwo",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/not/3",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        check: $()two\n        ",
+    "input": "oneatwo",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/0",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "onetwo",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/1",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "one eat two",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/2",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "one half two",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/3",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "oneeattwo",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/4",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "onehalftwo",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/notnot/5",
+    "rules": "\n        check: one$()\n        not: $()eat$()\n        not: half\n        check: $()two\n        ",
+    "input": "oneatwo",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/0",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/1",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/2",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two four three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/3",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three four two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/4",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two four three",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/unordered/5",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three four two",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/0",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/1",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/2",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two four three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/3",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three four two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/4",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one two four three",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/leading_unordered/5",
+    "rules": "\n        unordered: two\n        unordered: three\n        check: four\n        ",
+    "input": "one three four two",
+    "expected": "fail",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/0",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one two three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/1",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one three two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/2",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one two four three four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/3",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one three four two four",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/4",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one two four three",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "upstream/trailing_unordered/5",
+    "rules": "\n        check: one\n        unordered: two\n        unordered: three\n        ",
+    "input": "one three four two",
+    "expected": "pass",
+    "origin": "bytecodealliance/filecheck tests/basic.rs"
+  },
+  {
+    "name": "register-capture",
+    "rules": "regex: R=r[0-9]+\ncheck: load $(v=$R)\nnextln: use $v",
+    "input": "load r42\nuse r42",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "register-wrong",
+    "rules": "regex: R=r[0-9]+\ncheck: load $(v=$R)\nnextln: use $v",
+    "input": "load r42\nuse r41",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "numeric-name",
+    "rules": "check: $(0=[a-z]+)\nnextln: $0",
+    "input": "cat\ncat",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "dollar-literal",
+    "rules": "check: $$5",
+    "input": "price $5",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "empty-escape",
+    "rules": "check: foo$()",
+    "input": "foobar",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "word-boundary",
+    "rules": "check: foo",
+    "input": "foobar",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "literal-meta",
+    "rules": "check: [a].*",
+    "input": "[a].*",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "empty-regex",
+    "rules": "check: $(=)",
+    "input": "anything",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "nested-group",
+    "rules": "check: $(v=(cat|dog)+)\nnextln: $v",
+    "input": "catdog\ncatdog",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "class-parenthesis",
+    "rules": "check: $(v=[()]+)",
+    "input": "()",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "empty-optional-capture",
+    "rules": "check: $(v=a*)\ncheck: $v",
+    "input": "bbb",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "undefined",
+    "rules": "check: $missing",
+    "input": "x",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "same-pattern-ref",
+    "rules": "check: $(v=a)$v",
+    "input": "aa",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "duplicate-capture",
+    "rules": "check: $(v=a)$(v=b)",
+    "input": "ab",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "capture-in-not",
+    "rules": "not: $(v=a)",
+    "input": "b",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unterminated",
+    "rules": "check: $(v=abc",
+    "input": "abc",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "bad-regex",
+    "rules": "check: $(v=[)",
+    "input": "abc",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "bad-dollar",
+    "rules": "check: $",
+    "input": "x",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "regex-name",
+    "rules": "regex: =x",
+    "input": "x",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "negative-capture-ref",
+    "rules": "regex: V=[a-z]+\nnot: $(v=$V)",
+    "input": "x",
+    "expected": "error",
+    "origin": "independent regression"
+  },
+  {
+    "name": "trailing-not",
+    "rules": "check: start\nnot: error",
+    "input": "start error",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "negative-boundary-window",
+    "rules": "check: one$()\nnot: half\ncheck: $()two",
+    "input": "onehalftwo",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "negative-before",
+    "rules": "not: error\ncheck: start",
+    "input": "error start",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "negative-after",
+    "rules": "not: error\ncheck: start",
+    "input": "start error",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unordered-overlap",
+    "rules": "unordered: same\nunordered: same",
+    "input": "same",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unordered-barrier",
+    "rules": "unordered: one\nunordered: two\ncheck: three",
+    "input": "two three one",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unordered-reversed",
+    "rules": "unordered: one\nunordered: two\ncheck: three",
+    "input": "two one three",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unordered-dependency",
+    "rules": "regex: R=r[0-9]+\nunordered: $(v=$R) = load\nunordered: use $v",
+    "input": "use r1\nr1 = load",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "negative-frozen-value",
+    "rules": "check: $(v=a)\nnot: $v\ncheck: $(v=b)",
+    "input": "a b a",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unicode-cjk",
+    "rules": "check: 世界",
+    "input": "你好 世界",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unicode-boundary",
+    "rules": "check: 世界",
+    "input": "字世界",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unicode-emoji",
+    "rules": "check: hello",
+    "input": "😀 hello",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unicode-supplementary-letter",
+    "rules": "check: 𐐀",
+    "input": "😀 𐐀",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "unicode-word-class",
+    "rules": "check: $(v=\\w+)\nnextln: $v",
+    "input": "世界𐐀\n世界𐐀",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "crlf",
+    "rules": "check: one\r\nnextln: two",
+    "input": "one\r\ntwo",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "newline-not-optional",
+    "rules": "check: one\nnextln: two",
+    "input": "one\n\ntwo",
+    "expected": "fail",
+    "origin": "independent regression"
+  },
+  {
+    "name": "multiline-anchor",
+    "rules": "check: $(=^two$)",
+    "input": "one\ntwo\nthree",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "named-regex",
+    "rules": "check: $(v=(?P<inner>[a-z]+))",
+    "input": "abc",
+    "expected": "pass",
+    "origin": "independent regression"
+  },
+  {
+    "name": "escaped-non-bmp",
+    "rules": "check: $(=\\𐐀)",
+    "input": "𐐀",
+    "expected": "error",
+    "origin": "independent regression"
+  }
+]

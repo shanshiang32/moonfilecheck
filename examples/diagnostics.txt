@@ -1,0 +1,2 @@
+sample.mbt:12:4: error: unknown variable
+  name: missing

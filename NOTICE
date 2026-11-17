@@ -1,0 +1,13 @@
+MoonFileCheck 0.1.0
+Copyright 2026 MoonFileCheck contributors.
+
+Contains a MoonBit adaptation of Bytecode Alliance filecheck 0.5.0,
+Copyright The Cranelift Project Developers,
+licensed Apache-2.0 WITH LLVM-exception.
+
+Contains moonbitlang/regexp 0.3.7 with documented local modifications,
+Copyright 2025 International Digital Economy Academy,
+licensed Apache-2.0. See licenses/regexp-NOTICE for upstream notices.
+
+Contains Unicode word-character data from rust-lang/regex 1.11.1,
+licensed MIT OR Apache-2.0. See THIRD_PARTY.md and licenses/.

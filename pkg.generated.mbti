@@ -1,0 +1,60 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "utopi/moonfilecheck"
+
+import {
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn check(String, String, variables? : Map[String, String]) -> Report raise CheckError
+
+pub fn execute(@json.Json) -> @json.Json
+
+// Errors
+pub(all) suberror CheckError {
+  CheckError(String, Int32, String)
+}
+
+// Types and methods
+pub struct Checker {
+  // private fields
+}
+pub fn Checker::check(Self, String, variables? : Map[String, String]) -> Report raise CheckError
+pub fn Checker::parse(String, allow_empty? : Bool) -> Self raise CheckError
+
+#derive(@json.ToJson)
+pub(all) struct Diagnostic {
+  code : String
+  message : String
+  rule_line : Int32
+  input_line : Int32
+  input_column : Int32
+  pattern : String
+  excerpt : String
+}
+pub fn Diagnostic::to_json(Self) -> @json.Json
+
+#derive(@json.ToJson)
+pub(all) struct MatchSpan {
+  directive : String
+  rule_line : Int32
+  start : Int32
+  end : Int32
+  input_line : Int32
+  input_column : Int32
+}
+pub fn MatchSpan::to_json(Self) -> @json.Json
+
+#derive(@json.ToJson)
+pub(all) struct Report {
+  passed : Bool
+  directives : Int32
+  matches : Array[MatchSpan]
+  variables : Map[String, String]
+  diagnostic : Diagnostic?
+}
+pub fn Report::to_json(Self) -> @json.Json
+
+// Type aliases
+
+// Traits

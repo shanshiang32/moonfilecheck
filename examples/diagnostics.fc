@@ -1,0 +1,4 @@
+# Error line numbers can change without breaking the essential diagnosis.
+check: error: $(message=unknown variable)
+nextln: $(= +)name: missing
+not: internal compiler error

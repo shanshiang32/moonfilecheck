@@ -1,0 +1,5 @@
+# A register can be renamed; its definition and use must agree.
+regex: REG=r[0-9]+
+check: load $(value=$REG), input
+nextln: add $value, 1
+not: compilation failed

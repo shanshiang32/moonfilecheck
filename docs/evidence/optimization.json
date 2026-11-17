@@ -1,0 +1,18 @@
+{
+  "scenario": "2000 ordered matches, about 200 KiB input; worker startup included",
+  "samples_ms": {
+    "before": [
+      2745.3986999999997,
+      4984.3631000000005,
+      4988.9182
+    ],
+    "after": [
+      408.4589999999989,
+      423.7963,
+      421.4477999999999
+    ]
+  },
+  "before_median_ms": 4984.3631000000005,
+  "after_median_ms": 421.4477999999999,
+  "speedup": 11.826762650083834
+}

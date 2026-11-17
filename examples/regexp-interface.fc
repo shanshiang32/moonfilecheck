@@ -1,0 +1,6 @@
+# Independent package: verify named captures remain available in the dependency.
+check: package "moonbitlang/regexp"
+check: pub fn compile(StringView,
+check: pub fn MatchResult::get
+check: pub fn MatchResult::groups
+check: pub fn Regexp::execute

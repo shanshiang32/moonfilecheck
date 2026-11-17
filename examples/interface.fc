@@ -1,0 +1,10 @@
+# Verify the public library surface produced by the real MoonBit toolchain.
+check: package "utopi/moonfilecheck"
+check: pub fn check(String, String,
+sameln: -> Report raise CheckError
+check: pub fn execute(@json.Json) -> @json.Json
+check: pub fn Checker::check
+check: pub fn Checker::parse
+check: pub(all) struct Diagnostic
+check: pub(all) struct MatchSpan
+check: pub(all) struct Report

@@ -1,0 +1,2 @@
+load r17, input
+add r18, 1

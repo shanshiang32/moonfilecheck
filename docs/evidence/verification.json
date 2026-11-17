@@ -1,0 +1,7 @@
+{
+  "deterministic": 87,
+  "cli": 15,
+  "differential": 2487,
+  "oracle_mode": "live-rust",
+  "mismatches": []
+}

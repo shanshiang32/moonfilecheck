@@ -1,0 +1,10 @@
+[package]
+name = "moonfilecheck-oracle"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+filecheck = "=0.5.0"
+regex = "=1.11.1"
+serde_json = "=1.0.140"
